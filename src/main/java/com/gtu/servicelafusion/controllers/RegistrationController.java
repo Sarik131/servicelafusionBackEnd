@@ -32,6 +32,8 @@ public class RegistrationController
         System.out.println("Name : " + req.getParameter("name").toString());
         System.out.println("Phoneo : " + req.getParameter("phoneno").toString());
         System.out.println("experience : " + req.getParameter("experience").toString());
+        System.out.println("category : Test" );
+
         //registerService.registerCustomer(req.getParameter("email").toString(), req.getParameter("password").toString(), req.getParameter("name").toString(), req.getParameter("phoneno").toString(), req.getParameter("address").toString());//to call service method
        // registerService.registerCustomer(req);
 
@@ -44,12 +46,14 @@ public class RegistrationController
 //        map.put("Address : " , req.getParameter("address"));
         map.put("message", "Customer Registered!!");
         //User user=userRepository.saveAll(map.hashCode());
+
         ServiceProvider sp=new ServiceProvider();
-        sp.setId((long) 5);
+        //sp.setId((long) 5);
         sp.setName(req.getParameter("name"));
         sp.setEmail(req.getParameter("email"));
         sp.setPassword(req.getParameter("password"));
         sp.setPhoneno(req.getParameter("phoneno"));
+        sp.setCategory(req.getParameter("category"));
         sp.setExperience(req.getParameter("experience"));
 
         spRepository.save(sp);

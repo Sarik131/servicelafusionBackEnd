@@ -1,16 +1,19 @@
 package com.gtu.servicelafusion.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "reg_sp")
 public class ServiceProvider {
 
     @Id
+    //@GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "sp_id")
+    //@NotNull
+    //@Column(name = "sp_id")
     Long id;
 
     @Column(name = "name")//column name

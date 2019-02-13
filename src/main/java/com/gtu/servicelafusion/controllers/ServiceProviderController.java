@@ -5,6 +5,7 @@ import com.gtu.servicelafusion.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ public class ServiceProviderController {
 //    TODO step - 6  for calling service
     @Autowired
     UserService userService;
+
    // ServiceProvider serviceProvider;//initialize userService obj
 
 //    @PostMapping("/login")
@@ -26,10 +28,12 @@ public class ServiceProviderController {
 //        return "Data received!!";
 //    }
 //
-    @GetMapping("/serviceProviders")
-    public List<ServiceProvider> findServiceProviders ()
+    @GetMapping("/splist")
+    public Map<String,Object> findServiceProviders ()
     {
-        return userService.findAllServiceProviders();
+        Map<String,Object> map=new HashMap<String,Object>() ;
+        map.put("splist",userService.findAllServiceProviders());
+        return map;
     }
 
     {
