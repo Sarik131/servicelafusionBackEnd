@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table( name = "reg_customer")//Table name
 public class User {
 
-
     @Id//For primary key
     @Column(name = "c_id")//If of primary key is not Id then do this <-
     Long id;

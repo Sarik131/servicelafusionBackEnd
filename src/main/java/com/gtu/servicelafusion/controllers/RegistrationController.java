@@ -45,7 +45,7 @@ public class RegistrationController
 //        map.put("Phoneo : " , req.getParameter("phoneno"));
 //        map.put("Address : " , req.getParameter("address"));
         map.put("message", "Customer Registered!!");
-        //User user=userRepository.saveAll(map.hashCode());
+       // User user=userRepository.saveAll(map.hashCode());
 
         ServiceProvider sp=new ServiceProvider();
         //sp.setId((long) 5);
@@ -57,7 +57,7 @@ public class RegistrationController
         sp.setExperience(req.getParameter("experience"));
 
         spRepository.save(sp);
-
+        sp.getId();
         return map;
     }
 
