@@ -30,17 +30,17 @@ public class Query {
 
     @Column( name = "c_address")//column name
     String c_address;
-//
-//public Query()
-//{}
-//    public Query( int c_id, long amount, String description, String category, String c_address) {
-//        //this.id = id;
-//        this.c_id = c_id;
-//        this.amount = amount;
-//        this.description = description;
-//        this.category = category;
-//        this.c_address = c_address;
-//    }
+
+public Query()
+{}
+    public Query( int c_id, long amount, String description, String category, String c_address) {
+        //this.id = id;
+        this.c_id = c_id;
+        this.amount = amount;
+        this.description = description;
+        this.category = category;
+        this.c_address = c_address;
+    }
 
     public Long getId() {
         return id;

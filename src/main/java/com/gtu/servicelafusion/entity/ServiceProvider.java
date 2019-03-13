@@ -10,10 +10,8 @@ public class ServiceProvider {
     @Id
     //@GeneratedValue(strategy=GenerationType.AUTO)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    //@Basic(optional = false)
     @Column(name = "sp_id")
-    //@NotNull
-    //@Column(name = "sp_id")
     Long id;
 
     @Column(name = "name")//column name

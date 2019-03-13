@@ -1,17 +1,17 @@
 package com.gtu.servicelafusion.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 //TODO- step 3  make entity class
 
 @Entity
 @Table( name = "reg_customer")//Table name
+
 public class User {
 
     @Id//For primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "c_id")//If of primary key is not Id then do this <-
     Long id;
 
@@ -26,6 +26,16 @@ public class User {
 
     @Column(name = "phoneno")
     String phoneno;
+
+    public  User()
+    {}
+    public User(String email, String password, String name, String phoneno, String address) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.phoneno = phoneno;
+        this.address = address;
+    }
 
     @Column(name = "address")
     String address;

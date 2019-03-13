@@ -22,7 +22,7 @@ public class RegistrationController
 {
     @Autowired
     //RegisterService registerService;
-    ServiceProviderRepository spRepository;
+            ServiceProviderRepository spRepository;
     @PostMapping("/register")
 
     public  Map<String,Object> register(HttpServletRequest req) {
@@ -32,10 +32,10 @@ public class RegistrationController
         System.out.println("Name : " + req.getParameter("name").toString());
         System.out.println("Phoneo : " + req.getParameter("phoneno").toString());
         System.out.println("experience : " + req.getParameter("experience").toString());
-        System.out.println("category : Test" );
+        System.out.println("category : "+req.getParameter("category") );
 
         //registerService.registerCustomer(req.getParameter("email").toString(), req.getParameter("password").toString(), req.getParameter("name").toString(), req.getParameter("phoneno").toString(), req.getParameter("address").toString());//to call service method
-       // registerService.registerCustomer(req);
+        // registerService.registerCustomer(req);
 
 
         Map<String, Object> map = new HashMap<>();
@@ -45,7 +45,7 @@ public class RegistrationController
 //        map.put("Phoneo : " , req.getParameter("phoneno"));
 //        map.put("Address : " , req.getParameter("address"));
         map.put("message", "Customer Registered!!");
-       // User user=userRepository.saveAll(map.hashCode());
+        // User user=userRepository.saveAll(map.hashCode());
 
         ServiceProvider sp=new ServiceProvider();
         //sp.setId((long) 5);

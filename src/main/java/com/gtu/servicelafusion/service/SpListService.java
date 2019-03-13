@@ -8,7 +8,10 @@ import com.gtu.servicelafusion.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //TODO step 4 create service class in service package
 @Service
@@ -18,11 +21,11 @@ public class SpListService {
     ServiceProviderRepository serviceProviderRepository;
 
 
-    public List<ServiceProvider> getSpList(String category)
+    public Map<String ,Object> getSpList(String category)
     {
-        return serviceProviderRepository.findByCategory(category);
-//        serviceProviderRepository.findAll()
-//        return serviceProviderRepository.findByCategory(String category);
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("splist",serviceProviderRepository.findByCategory(category));
+        return map;
 
     }
 

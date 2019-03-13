@@ -1,20 +1,19 @@
 package com.gtu.servicelafusion.controllers;
 
-import com.gtu.servicelafusion.entity.ServiceProvider;
 import com.gtu.servicelafusion.repository.ServiceProviderRepository;
-import com.gtu.servicelafusion.repository.SpListRepository;
 import com.gtu.servicelafusion.service.SpListService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
-public class ServiceProviderController {
+public class AllController {
 
 //    TODO step - 6  for calling service
     @Autowired
@@ -22,21 +21,7 @@ SpListService spListService;
 
     @Autowired
     ServiceProviderRepository serviceProviderRepository;
-//    @PostMapping("/splist")
-//    public Map<String,Object> findServiceProviders (@RequestBody Map<String, Object> req)
-//    {
-//        Map<String,Object> map=new HashMap<String,Object>() ;
-//        System.out.println("In splist  :"+req.get("category"));
-//        map.put("splist",spListService.getSpList(req.get("category").toString()));
-////        ArrayList<ServiceProvider> al=spListService.getSpList(req.get("category").toString());
-////        for (ServiceProvider sp : al) {
-////            String name = sp.getName();
-////            String exp = sp.getExperience();
-////            System.out.println("arraylist" + name + "  " + exp);
-////        }
-//        return map;
-//    }
-@PostMapping("/splist")
+@GetMapping("/all")
 public Map<String,Object> findServiceProviders (HttpServletRequest req)
 {
     Map<String,Object> map=new HashMap<String,Object>() ;
@@ -44,19 +29,14 @@ public Map<String,Object> findServiceProviders (HttpServletRequest req)
 
 
 
+//    if(spListService.getSpList(req.getParameter("category")) != null)
+//    {
+//        System.out.println("Not null");
+//    }
 
     //List<ServiceProvider> s=spListService.getSpList(req.getParameter("category"));
    // System.out.println("Size of arrylist :"+s.size());
-   map=spListService.getSpList(req.getParameter("category"));
-    if(map != null)
-    {
-        System.out.println("Not null");
-    }
-
-
-   //map.get("splist");
-
-  // System.out.println(map.get("splist"));
+    map.put("splist",serviceProviderRepository.findAll());
 //    map.put("splist",serviceProviderRepository.findAll());
     return map;
 }

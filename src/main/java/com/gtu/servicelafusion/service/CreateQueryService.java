@@ -18,8 +18,8 @@ public class CreateQueryService {
 
     public void saveAll(int c_id,Long amount,String description,String category,String c_address)
     {
-//        Query query =new Query(c_id,amount,description,category,c_address);
-//         createQueryRepository.save(query);
+        Query query =new Query(c_id,amount,description,category,c_address);
+         createQueryRepository.save(query);
     }
 
 }

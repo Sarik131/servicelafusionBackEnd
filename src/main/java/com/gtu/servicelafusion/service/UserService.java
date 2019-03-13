@@ -20,15 +20,19 @@ public class UserService {
     ServiceProviderRepository serviceProviderRepository;
 
 
-    public void checkUserLogin(String email,String password){
+    public String checkUserLogin(String email,String password){
         User user = userRepository.findOneByEmailAndPassword(email,password);//Write method in the form of query which you want to perform
 
         if(user != null){
-            System.out.println("true");
+            //System.out.println("true");
+            return "true";
+
         }
         else{
-            System.out.println("false");
+            //System.out.println("false");
+            return "false";
         }
+
     }
 
     public List<ServiceProvider> findAllServiceProviders()
