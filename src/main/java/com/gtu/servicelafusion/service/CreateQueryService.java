@@ -1,6 +1,9 @@
 package com.gtu.servicelafusion.service;
 
-import com.gtu.servicelafusion.entity.Query;
+
+
+import com.gtu.servicelafusion.entity.Q;
+//import com.gtu.servicelafusion.entity.Query;
 import com.gtu.servicelafusion.entity.ServiceProvider;
 import com.gtu.servicelafusion.repository.CreateQueryRepository;
 import com.gtu.servicelafusion.repository.ServiceProviderRepository;
@@ -16,9 +19,9 @@ public class CreateQueryService {
     @Autowired
     CreateQueryRepository createQueryRepository;
 
-    public void saveAll(int c_id,Long amount,String description,String category,String c_address)
+    public void saveAll(String description,String category,String c_address)
     {
-        Query query =new Query(c_id,amount,description,category,c_address);
+        Q query =new Q(description,category,c_address);
          createQueryRepository.save(query);
     }
 

@@ -27,12 +27,12 @@ public class RegistrationController
 
     public  Map<String,Object> register(HttpServletRequest req) {
 
-        System.out.println("Email : " + req.getParameter("email").toString());
-        System.out.println("Password : " + req.getParameter("password").toString());
-        System.out.println("Name : " + req.getParameter("name").toString());
-        System.out.println("Phoneo : " + req.getParameter("phoneno").toString());
-        System.out.println("experience : " + req.getParameter("experience").toString());
-        System.out.println("category : "+req.getParameter("category") );
+        System.out.println("Email : " + req.getParameter("email"));
+        System.out.println("Password : " + req.getParameter("password"));
+        System.out.println("Name : " + req.getParameter("name"));
+        System.out.println("Phoneo : " + req.getParameter("phoneno"));
+        System.out.println("experience : " + req.getParameter("experience"));
+        System.out.println("category : "+req.getParameter("category"));
 
         //registerService.registerCustomer(req.getParameter("email").toString(), req.getParameter("password").toString(), req.getParameter("name").toString(), req.getParameter("phoneno").toString(), req.getParameter("address").toString());//to call service method
         // registerService.registerCustomer(req);

@@ -15,8 +15,15 @@ import java.util.Set;
 @Repository
 public interface ServiceProviderRepository extends JpaRepository<ServiceProvider,Long> {
 
-//@Query("SELECT sp.name , sp.experience FROM ServiceProvider sp WHERE category = :cat")
-@Query("SELECT sp FROM ServiceProvider sp WHERE sp.category = :cat")
+   ServiceProvider findOneByEmailAndPassword(String email, String password);
+
+
+    //@Query("SELECT sp.name , sp.experience FROM ServiceProvider sp WHERE category = :cat")
+    @Query("SELECT sp FROM ServiceProvider sp WHERE sp.category = :cat")
     public List<ServiceProvider> findByCategory(@Param("cat") String category);
+
+    @Query("SELECT sp.id FROM ServiceProvider sp WHERE sp.email = :em AND sp.password = :pa ")
+    public String findSp_idByEmailAndPassword(@Param("em") String email,@Param("pa") String pass);
+
 
 }

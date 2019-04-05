@@ -15,20 +15,48 @@ import java.util.Map;
 public class LoginController {
     @Autowired
     UserService userService;
+
     @PostMapping("/login1")
 
 
     //public String home(@RequestBody Map<String, Object> req)
-    public  Map<String,Object> login(HttpServletRequest req) {
-        System.out.println("Email : " + req.getParameter("email"));
-        System.out.println("Password : " + req.getParameter("password"));
-        String check=userService.checkUserLogin(req.getParameter("email"), req.getParameter("password"));//to call service method
-        System.out.println("check :"+check);
+    public Map<String, Object> login(HttpServletRequest req) {
+        String c_address,sp_id;
+        String email;
+        String password;
+        String user;
         Map<String, Object> map = new HashMap<>();
-        map.put("checkLogin",check);
-        map.put("message", "Data received!!");
+
+
+        email = req.getParameter("email");
+        password = req.getParameter("password");
+        user = req.getParameter("user");
+        System.out.println("Email : " + email);
+        System.out.println("Password : " + password);
+        System.out.println("User : " + user);
+
+        if (user.equalsIgnoreCase("customer")) {
+
+            String check = userService.checkUserLogin(req.getParameter("email"), req.getParameter("password"));//to call service method
+            System.out.println("check :" + check);
+            map.put("checkLogin", check);
+            c_address = userService.findAddressByEmailAndPassword(req.getParameter("email"), req.getParameter("password"));
+            System.out.println("c_address" + c_address);
+            map.put("c_address", c_address);
+            map.put("message", "Data received!!");
+
+        } else {
+            String check = userService.checkSpLogin(req.getParameter("email"), req.getParameter("password"));//to call service method
+            System.out.println("check :" + check);
+            map.put("checkLogin", check);
+            sp_id = userService.findSp_idByEmailAndPassword(req.getParameter("email"), req.getParameter("password"));
+            System.out.println("sp_id :" + sp_id);
+            map.put("sp_id", sp_id);
+            map.put("message", "Data received!!");
+        }
         return map;
     }
+
 
         //       System.out.println("Email : " + req.get("email"));
         //System.out.println("Password : " + req.get("password"));

@@ -34,7 +34,32 @@ public class UserService {
         }
 
     }
+    public String findAddressByEmailAndPassword(String email,String password)
+    {
+        String c_address    =   userRepository.findAddressByEmailAndPassword(email,password);
+        return c_address;
+    }
 
+    public String findSp_idByEmailAndPassword(String email,String password)
+    {
+        String sp_id=" ";
+
+        sp_id= serviceProviderRepository.findSp_idByEmailAndPassword(email,password);
+
+        return sp_id;
+    }
+    public String checkSpLogin(String email,String password) {
+        ServiceProvider sp = serviceProviderRepository.findOneByEmailAndPassword(email, password);
+        if (sp != null) {
+            //System.out.println("true");
+            return "true";
+        }
+
+        else{
+            //System.out.println("false");
+            return "false";
+        }
+    }
     public List<ServiceProvider> findAllServiceProviders()
     {
         return serviceProviderRepository.findAll();

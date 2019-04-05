@@ -32,7 +32,7 @@ public class CustRegistrationController
         System.out.println("Password : " + req.getParameter("password"));
         System.out.println("Name : " + req.getParameter("name"));
         System.out.println("Phoneo : " + req.getParameter("phoneno"));
-        System.out.println("experience : " + req.getParameter("address"));
+        System.out.println("address : " + req.getParameter("address"));
         //System.out.println("category : "+req.getParameter("category") );
 
         custRegisterService.registerCustomer(req.getParameter("email"), req.getParameter("password"), req.getParameter("name"), req.getParameter("phoneno"), req.getParameter("address"));
