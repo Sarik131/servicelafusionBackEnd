@@ -24,5 +24,10 @@ public class CreateQueryService {
         Q query =new Q(description,category,c_address);
          createQueryRepository.save(query);
     }
+    public String getQuery_id()
+    {
+        Q q=createQueryRepository.getQuery_id();
+        return ""+q.getId();
+    }
 
 }

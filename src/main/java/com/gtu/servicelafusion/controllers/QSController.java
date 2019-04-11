@@ -1,8 +1,7 @@
 package com.gtu.servicelafusion.controllers;
 
 import com.gtu.servicelafusion.repository.QRepository;
-import com.gtu.servicelafusion.repository.ServiceProviderRepository;
-import com.gtu.servicelafusion.service.SpListService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +30,12 @@ public Map<String,Object> findServiceProviders (HttpServletRequest req)
 
     System.out.println("Query_id : " +query_id );
 
-        title=qRepository.findTitleById(query_id);
+    title=qRepository.findTitleById(query_id);
     description=qRepository.findDescriptionById(query_id);
 
 
-//        map.put("title",title);
-   // map.put("description",description);
+    map.put("title",title);
+    map.put("description",description);
     map.put("message","Data received!");
     return map;
 }

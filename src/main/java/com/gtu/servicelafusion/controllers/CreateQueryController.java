@@ -45,6 +45,8 @@ public class CreateQueryController {
 //        createQueryRepository.save(q);
 
         createQueryService.saveAll(description,category,c_address);
+
+        map.put("query_id", createQueryService.getQuery_id());
         map.put("message", "In Create Query ~ Data received");
         return map;
     }
