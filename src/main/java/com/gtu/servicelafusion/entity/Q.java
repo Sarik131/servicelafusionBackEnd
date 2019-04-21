@@ -17,7 +17,7 @@ public class Q {
             int c_id;
 
     @Column(name = "status")//column name
-    boolean status;
+            boolean status;
 
     @Column(name = "description")//column name
             String description;
@@ -25,17 +25,31 @@ public class Q {
     @Column(name = "category")//column name
             String category;
 
-    @Column( name = "c_address")//column name
+    @Column(name = "c_address")//column name
             String c_address;
 
-    @Column( name = "title")//column name
+    @Column(name = "title")//column name
             String title;
 
+    @Column(name = "image_url")//column name
+            String image;
 
-    public Q(String description, String category, String c_address) {
+    public Q(String description, String category, String c_address, String image) {
         this.description = description;
         this.category = category;
         this.c_address = c_address;
+        this.image = image;
+    }
+
+    public Q(Long id, int c_id, boolean status, String description, String category, String c_address, String title, String image) {
+        this.id = id;
+        this.c_id = c_id;
+        this.status = status;
+        this.description = description;
+        this.category = category;
+        this.c_address = c_address;
+        this.title = title;
+        this.image = image;
     }
 
     public Q(Long id, int c_id, boolean status, String description, String category, String c_address, String title) {

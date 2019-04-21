@@ -28,12 +28,12 @@
 //
 //        System.out.println("Query_id : " +query_id );
 //
-////        title=queryStatusRepository.findTitleById(query_id);
-////        description=queryStatusRepository.findDescriptionById(query_id);
+//        title=queryStatusRepository.findTitleById(query_id);
+//        description=queryStatusRepository.findDescriptionById(query_id);
 //
 //
-////        map.put("title",title);
-////        map.put("description",description);
+//        map.put("title",title);
+//        map.put("description",description);
 //        map.put("message","Data received!");
 //        return map;
 //    }

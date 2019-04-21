@@ -24,7 +24,7 @@ public class QSController {
 public Map<String,Object> findServiceProviders (HttpServletRequest req)
 {
     Map<String,Object> map=new HashMap<String,Object>() ;
-    int query_id=Integer.parseInt(req.getParameter("query_id"));
+    Long query_id=Long.parseLong(req.getParameter("query_id"));
         String title;
     String description;
 

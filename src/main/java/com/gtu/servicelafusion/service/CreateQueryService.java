@@ -19,9 +19,9 @@ public class CreateQueryService {
     @Autowired
     CreateQueryRepository createQueryRepository;
 
-    public void saveAll(String description,String category,String c_address)
+    public void saveAll(String description,String category,String c_address,String image_url)
     {
-        Q query =new Q(description,category,c_address);
+        Q query =new Q(description,category,c_address,image_url);
          createQueryRepository.save(query);
     }
     public String getQuery_id()
