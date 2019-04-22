@@ -20,25 +20,26 @@ public class QSController {
     QRepository qRepository;
 
 
-@PostMapping("/querystatus")
-public Map<String,Object> findServiceProviders (HttpServletRequest req)
-{
-    Map<String,Object> map=new HashMap<String,Object>() ;
-    Long query_id=Long.parseLong(req.getParameter("query_id"));
+    @PostMapping("/querystatus")
+    public Map<String, Object> findServiceProviders(HttpServletRequest req) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Long query_id = Long.parseLong(req.getParameter("query_id"));
         String title;
-    String description;
+        String description;
+        String image_url;
+        System.out.println("Query_id : " + query_id);
 
-    System.out.println("Query_id : " +query_id );
+        title = qRepository.findTitleById(query_id);
+        description = qRepository.findDescriptionById(query_id);
+        image_url= qRepository.findImage_urlById(query_id);
 
-    title=qRepository.findTitleById(query_id);
-    description=qRepository.findDescriptionById(query_id);
-
-
-    map.put("title",title);
-    map.put("description",description);
-    map.put("message","Data received!");
-    return map;
-}
+        map.put("title", title);
+        map.put("description", description);
+        map.put("image_url", image_url);
+        System.out.println("image_url"+image_url);
+        map.put("message", "Data received!");
+        return map;
+    }
 
 }
 

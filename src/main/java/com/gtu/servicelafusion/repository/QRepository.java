@@ -19,4 +19,7 @@ public interface QRepository extends JpaRepository<Q,Long> {
  @Query("SELECT q.title FROM Q q WHERE q.id = :id")
  public String findTitleById(@Param("id") Long q_id);
 
+ @Query("SELECT q.image FROM Q q WHERE q.id = :id")
+ public String findImage_urlById(@Param("id") Long q_id);
+
 }

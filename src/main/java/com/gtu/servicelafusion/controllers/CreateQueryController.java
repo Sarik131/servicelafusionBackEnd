@@ -33,9 +33,13 @@ public class CreateQueryController {
        System.out.println("Description : "+req.getParameter("description").toString());
        System.out.println("category : "+req.getParameter("catTitle").toString());
        System.out.println("c_address : "+req.getParameter("c_address").toString());
+       System.out.println("image_url : "+req.getParameter("image_url").toString());
+
         String description = req.getParameter("description").toString();
         String category =req.getParameter("catTitle").toString();
         String c_address=req.getParameter("c_address").toString();
+        String image_url=req.getParameter("image_url").toString();
+
 //       // Query q = new Query(cid,amount,description,category,c_address);
 //        q.setC_id(cid);
 //        q.setAmount(amount);
@@ -44,9 +48,9 @@ public class CreateQueryController {
 //        q.setC_address(c_address);
 //        createQueryRepository.save(q);
 
-        createQueryService.saveAll(description,category,c_address);
+        createQueryService.saveAll(description,category,c_address,image_url);
 
-        map.put("query_id", createQueryService.getQuery_id());
+//        map.put("query_id", createQueryService.getQuery_id());
         map.put("message", "In Create Query ~ Data received");
         return map;
     }
