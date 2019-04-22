@@ -15,7 +15,7 @@ public interface QRepository extends JpaRepository<Q,Long> {
 
  @Query("SELECT q.description FROM Q q WHERE q.id = :cat")
     public String findDescriptionById(@Param("cat") Long q_id);
-
+//
  @Query("SELECT q.title FROM Q q WHERE q.id = :id")
  public String findTitleById(@Param("id") Long q_id);
 
